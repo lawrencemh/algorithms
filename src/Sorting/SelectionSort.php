@@ -2,7 +2,7 @@
 
  require('Sort.php');
  
- final class BubbleSort extends Sort
+ final class SelectionSort extends Sort
  {
      /**
       * Handle construction of new instance
@@ -27,7 +27,7 @@
          // check array not already sorted
          if ($this->isSorted != true)
          {
-             $this->bubbleSort();
+             $this->selectionSort();
          }
          
          return $this->isSorted;
@@ -37,11 +37,11 @@
      
      
     /**
-    * Bubblesort function
+    * Selectionsort function
     * 
     * @return Void
     */
-    private function bubbleSort()
+    private function selectionSort()
     {
         // check array is set or return false
         if (empty($this->array))
@@ -49,32 +49,26 @@
             return false;
         }
         
-        // init swaps counter & count array
-        $sps = (int) 0;
-        $n = count($this->array) - 1;
+        // get len and init $smlKey to 0
+        $len = count($this->array);
+        $smlKey = 0;
         
-        // do until no changes made in previous iteration
-        do 
+        // loop through list with $i being the end of the sorted section
+        for ($i = 0; $i < $len; $i++)
         {
-            // reset $sps
-            $sps = 0;
-            
-            // loop through each value in array
-            for ($i = 0; $i < $n; $i++)
+            //loop through unsorted section
+            for ($j = $i, $smlKey = $i; $j < $len; $j++)
             {
-                // check if values[i] is higher than values[i+1] and swap if necessary
-                if($this->array[$i] > $this->array[$i + 1])
+                // check if array[$j] is smaller than $smlKey
+                if ($this->array[$j] < $this->array[$smlKey])
                 {
-                    // swap values and increment changes
-                    $this->arraySwap($i, $i+1);
-                    $sps++;
+                    $smlKey = $j;
                 }
             }
             
-            // decrement n (i.e. arr len) as far right value now sorted
-            $n--;
-        
-        } while ($sps > 0);
+            // swap smallest with $i
+            $this->arraySwap($i, $smlKey);
+        }
         
         // change sorted status to true
         $this->isSorted = true;

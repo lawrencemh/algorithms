@@ -17,6 +17,7 @@ abstract class Sort implements SortInterface
     
     /**
      * Validate and set the array parameter on __construct
+     * 
      * @param Array $array
      * @return Boolean
      */
@@ -72,6 +73,7 @@ abstract class Sort implements SortInterface
      
      /**
      * Returns array in $this->array
+     * 
      * @return Array
      */
     public function getArray()

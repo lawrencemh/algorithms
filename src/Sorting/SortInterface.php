@@ -4,6 +4,8 @@ interface SortInterface
 {
     /**
       * Sorts the array using BubbleSort
+      * 
+      * @return Boolean
       */
     public function sort();
     
@@ -16,6 +18,7 @@ interface SortInterface
     
     /**
      * Returns array in $this->array
+     * 
      * @return Array
      */
     public function getArray();
