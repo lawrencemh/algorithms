@@ -1,6 +1,5 @@
 <?php
 
-
 interface SortInterface
 {
     /**
@@ -13,5 +12,11 @@ interface SortInterface
      * 
      * @return String
      */
-     public function toString();
+    public function toString();
+    
+    /**
+     * Returns array in $this->array
+     * @return Array
+     */
+    public function getArray();
 }
