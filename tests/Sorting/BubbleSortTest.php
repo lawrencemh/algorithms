@@ -69,4 +69,56 @@ class BubbleSortTest extends TestCase
         );
     }
 
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testRejectsNonArray1()
+    {
+        // init large array to sort to 1000 in reverse
+        $unsorted = 55;
+        
+        // check throws exception
+        $sort = new BubbleSort($unsorted);
+    }
+    
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testRejectsNonArray2()
+    {
+        // init large array to sort to 1000 in reverse
+        $unsorted = "Test string...";
+        
+        // check throws exception
+        $sort = new BubbleSort($unsorted);
+    }
+    
+    
+    
+    public function testSortMethod()
+    {
+        // init sort
+        $sort = new BubbleSort([3,2,1]);
+        
+        // check $sort->sort() returns true
+        $this->assertTrue($sort->sort());
+        
+    }
+
+
+
+    public function testGetArrayMethod()
+    {
+        // init large array to sort to 1000 in reverse
+        $arr = [1,2,5,4,6];
+
+        // init BubbleSort
+        $sort = new BubbleSort($arr);
+        
+        // check sorted array matches expected sorted array from $sorted
+        $this->assertJsonStringEqualsJsonString(
+            json_encode($arr),
+            json_encode($sort->getArray())
+        );
+    }
 }

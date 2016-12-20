@@ -11,7 +11,7 @@
       */
      public function __construct($array = array())
      {
-         $this->array = $array;
+         $this->setArray($array);
      }
      
      
@@ -26,9 +26,13 @@
          if ($this->isSorted != true)
          {
              $this->bubbleSort();
-             $this->isSorted = true;
          }
+         
+         return $this->isSorted;
      }
+     
+     
+     
      
     /**
     * Bubblesort function
@@ -67,8 +71,14 @@
             $n--;
         
         } while ($sps > 0);
+        
+        // change sorted status to true
+        $this->isSorted = true;
     }
      
+     
+    
+    
      
  }
  

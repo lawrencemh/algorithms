@@ -15,6 +15,25 @@ abstract class Sort implements SortInterface
     protected $isSorted = false;
     
     
+    /**
+     * Validate and set the array parameter on __construct
+     * @param Array $array
+     * @return Boolean
+     */
+     protected function setArray(&$array)
+     {
+         if (is_array($array))
+         {
+            $this->array = $array;
+            return true;
+         }
+         else
+         {
+             // non-array passed to constructor throw exception
+             throw new InvalidArgumentException('ArrayExpectedAsParameter');
+         }
+     }
+    
     
     /**
      * Converts array to json formatted string
