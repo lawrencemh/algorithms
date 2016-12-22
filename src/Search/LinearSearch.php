@@ -26,7 +26,7 @@
      public function search()
      {
          // check if already searched
-         if (!$this->isSearched == TRUE)
+         if (!$this->isSearched == true)
          {
              $this->linearSearch();
          }
