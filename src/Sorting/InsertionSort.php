@@ -37,7 +37,7 @@
      
      
     /**
-    * Selectionsort function
+    * Insertionsort function
     * 
     * @return void
     */
@@ -49,9 +49,10 @@
             return false;
         }
         
-        // TODO: Insertion sort
+        // get length of array
         $len = count($this->array);
         
+        // loop through array from 1 to $len
         for ($i = 1; $i < $len; $i++)
         {
             // temp hold value
